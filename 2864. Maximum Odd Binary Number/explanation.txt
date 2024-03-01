@@ -1,0 +1,26 @@
+Problem:
+
+Given a binary string s containing at least one 1, the task is to rearrange the bits to form the maximum odd binary number possible. The resulting string can have leading zeros.
+Example:
+Input: "010"
+Output: "001" (Explanation: The only "1" is placed at the end, making the largest odd number)
+Input: "101"
+Output: "1001" (Explanation: One "1" is placed at the beginning, and the remaining bits form the largest even number "00")
+
+Algorithm:
+
+Count the number of '1's: Iterate through the string and count the occurrences of the character '1'. Store this count in a variable ones_count.
+Initialize the result string: Create an empty string named result to store the rearranged binary number.
+Append leading zeros (optional): If ones_count is less than the length of the input string s, it means there are leading zeros. Append s.length() - ones_count number of '0' characters to the beginning of result.
+Append maximum number with remaining bits:
+Add ones_count - 1 '1' characters to the end of result (one less than the total '1's to account for the odd number at the end).
+Append s.length() - ones_count '0' characters to the end of result (remaining bits).
+Append the last '1': Add a final '1' character to the end of result.
+
+Explanation:
+
+The algorithm first identifies the total number of '1's in the string.
+If there are leading zeros, it ensures they are included in the result by adding the required number of '0's at the beginning.
+The algorithm then builds the maximum even number using the remaining bits (excluding the last '1'). This is achieved by adding ones_count - 1 '1's followed by the remaining '0's.
+Finally, the algorithm appends the remaining '1' to the end, making the resulting number odd and maximizing its value.
+This approach ensures that all available '1's are used efficiently to create the largest possible odd binary number from the given string.
