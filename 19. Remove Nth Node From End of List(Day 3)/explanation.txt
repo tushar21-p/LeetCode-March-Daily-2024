@@ -1,0 +1,31 @@
+Problem:
+
+Given the head of a linked list, remove the nth node from the end of the list and return its head.
+Example:
+Input: head = [1,2,3,4,5], n = 2
+Output: [1,2,3,5]
+
+Algorithm:
+
+There are two main approaches to solve this problem:
+
+1. Two Pointers(best to implement and good in time complexity) :
+
+This approach uses two pointers, slow and fast.
+
+Move fast pointer n steps ahead:
+
+Start both slow and fast pointers at the head of the list.
+Move the fast pointer n nodes ahead.
+If n is greater than the list length (i.e., fast becomes null), it means the node to remove doesn't exist, and we can return the head (no change).
+Move slow and fast together:
+
+Once fast is n nodes ahead, start moving both slow and fast pointers one step at a time until fast reaches the end (becomes null).
+Identify the node before the target node:
+
+At this point, the slow pointer will be pointing to the node before the nth node from the end.
+Remove the target node:
+
+There are two cases:
+If slow is null, it means we need to remove the head node. Simply update the head to the next node.
+Otherwise, access the node after slow (the nth node from the end) and update slow.next to point to the node after the target node, effectively removing it from the list.
