@@ -1,0 +1,26 @@
+Problem:
+Given a positive integer n, find the pivot integer x such that:
+
+The sum of all elements between 1 and x inclusively equals the sum of all elements between x and n inclusively.
+Return the pivot integer x. If no such integer exists, return -1. It is guaranteed that there will be at most one pivot index for the given input.
+
+Example 1:
+
+Input: n = 8
+Output: 6
+Explanation: 6 is the pivot integer since: 1 + 2 + 3 + 4 + 5 + 6 = 6 + 7 + 8 = 21
+
+
+
+Algorithm:
+
+Using the two pointers method is a valid approach to solving this problem efficiently. Here's a brief explanation of how you can use the two pointers method to find the pivot integer 'x':
+
+Initialize two pointers, one at the beginning (1) and the other at the end (n) of the range [1, n].
+Calculate the total sum of all elements from 1 to n.
+While the pointers haven't crossed each other:
+Calculate the sum of elements between the two pointers (inclusive).
+If the sum of elements to the left pointer is greater than the sum of elements to the right pointer, move the right pointer to the left (decreasing the sum) by decrementing 'n'.
+If the sum of elements to the left pointer is less than the sum of elements to the right pointer, move the left pointer to the right (increasing the sum) by incrementing 'x'.
+If the sums are equal, you've found the pivot integer 'x'.
+Here's a Java implementation based on the described approach:
